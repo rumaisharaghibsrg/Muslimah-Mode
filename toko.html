@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muslimah Mode</title>
+  <style>
+      /* Import font dari Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+    /* Style html */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 60px; 
+    }
+    /* Style body */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #4fc3f7;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #fff8f1;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      justify-content: center;
+    }
+
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;   
+        align-items: center;
+        flex-wrap: wrap;           
+        gap: 10px;                 
+    }
+
+    .navbar li {
+      margin: 0 10px;
+    }
+
+    .navbar a {
+      color: #000000;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #4fc3f7;
+      border-radius: 5px;
+    }
+
+    .navbar input[type="text"] {
+      padding: 6px;
+      border: none;
+      border-radius: 5px;
+      max-width: 120px; 
+    }
+
+    .btn-search {
+      padding: 6px 12px;
+      background-color: #4fc3f7;
+      border: none;
+      border-radius: 5px;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-search:hover {
+      background-color: #02689f;
+    }
+
+    /* Section umum */
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      margin-bottom: 20px;
+    }
+
+    /* Card Produk */
+    .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center; 
+    justify-items: center;
+    }
+
+    .card {
+      background: #fff8f1;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      width: 250px;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    /* Info Toko */
+    .infotoko {
+      background-color: #fff8f1;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 0 auto;
+      max-width: 600px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Testimoni */
+    #testimoni {
+      padding: 40px 20px;
+      background-color: #f8f9fa;
+      text-align: center;
+    }
+
+    #testimoni h2 {
+      margin-bottom: 30px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .testimoni-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .testimoni-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      max-width: 250px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .testimoni-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimoni-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%; /* jadi bulat */
+      margin-bottom: 15px;
+    }
+
+    .testimoni-card h3 {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #444;
+    }
+
+    .testimoni-card p {
+      font-size: 14px;
+      color: #666;
+      font-style: italic;
+    }
+
+    /* Promo banner */
+    .promo {
+      background-color: #ffe082;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 0 auto;
+      max-width: 600px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }}
+
+    /* HP */
+    @media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+    .navbar ul {
+        flex-direction: column; 
+        gap: 5px;
+    }
+    .navbar input[type="text"] {
+        width: 100%;             
+        max-width: none;
+    }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Beranda</a></li>
+      <li><a href="#produk">Data Produk</a></li>
+      <li><a href="#infotoko">Info Toko</a></li>
+      <li><a href="#testimoni">Testimoni</a></li>
+      <li><a href="#promo">Promo</a></li>
+      <li><input type="text" placeholder="Cari produk..."></li>
+      <li><a href="#produk" class="btn-search">Search</a></li>
+    </ul>
+  </nav>
+
+  <!-- Beranda -->
+  <section id="beranda" style="background-color: #0fa7ed;">
+    <h1 style="font-family: Dancing Script; ">Selamat Datang di Muslimah Mode</h1>
+    <p>Belanja baju berkualitas dengan mudah dan cepat!</p>
+  </section>
+
+  <!-- Data Produk -->
+  <section id="produk">
+    <h2>Data Produk</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="baju1.jpg" alt="Gula Pasir">
+        <h3>ABAYA </h3>
+        <p>Pilihan warna: Hitam, Putih, Sage, mocca, cream, brown, abu</p>
+        <p>Tersedia semua ukuran</p>
+        <p>Harga:<br>
+        Rp 280.000 (dengan Hijab)<br>
+        Rp 240.000 (tanpa hijab)</p>
+      </div>
+      <div class="card">
+        <img src="baju2.jpg" alt="Gula Pasir">
+        <h3>SAKEENA SET (DRESS DAN ROMPI/ VEST) </h3>
+        <p>Pilihan warna: Maroon Beige, Cotton Denim, Burgundy Oat, Black Mamba, Hazelnut Light</p>
+        <p>Tersedia semua ukuran</p>
+        <p>Harga: Rp 270.000</p>
+      </div>
+      <div class="card">
+        <img src="baju3.jpg" alt="Gula Pasir">
+        <h3>SAFEEYA DRESS (GAMIS SAJA) </h3>
+        <p>Pilihan warna: Nude, Hazelnut, Dusty Purple, Mauve, Gray, Dark Gray</p>
+        <p>Tersedia semua ukuran</p>
+        <p>Harga: Rp 190.000</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Toko -->
+  <section id="infotoko">
+    <h2>Info Toko</h2>
+    <div class="infotoko">
+      <p><b>Nama toko:</b> Muslimah Mode<br>
+        <b>No.WhatsApp:</b> 085762871446<br>
+        <b>Sosial Media:</b> @MuslimahMode<br>
+        <b>Jam Respons Admin:</b> 08.00-17.00 WIB<br>
+    </p>
+    </div>
+  </section>
+
+  <!-- Testimoni -->
+  <section id="testimoni">
+    <h2>Testimoni</h2>
+    <div class="testimoni-container">
+        <div class="testimoni-card">
+        <img src="profil.jpg" alt="Foto Pelanggan">
+        <h3>Ayya</h3>
+        <p>"Bajunya nyaman dipakai, bahan adem dan pengiriman cepat!"</p>
+        </div>
+        <div class="testimoni-card">
+        <img src="profil.jpg" alt="Foto Pelanggan">
+        <h3>Taza</h3>
+        <p>"Desainnya elegan, cocok dipakai sehari-hari maupun acara formal."</p>
+        </div>
+        <div class="testimoni-card">
+        <img src="profil.jpg" alt="Foto Pelanggan">
+        <h3>Ica</h3>
+        <p>"Pelayanan ramah dan fast response, recommended banget toko ini!"</p>
+        </div>
+    </div>
+  </section>
+  <!-- Promo -->
+  <section id="promo">
+    <div class="promo">
+      <h2>Promo Spesial</h2>
+      <p>Diskon 20% min.belanja Rp 500.000 </p>
+    </div>
+  </section>
+<footer style="text-align: center; background-color: #fff8f1; padding: 10px; margin-top: 30px; font-size: 14px;color: #333;bottom: 0;left: 0; right:0;">© Rumaisha Raghib Syahidah Siregar_251402034_Muslimah Mode_2025</footer>
+</body>
+</html>
